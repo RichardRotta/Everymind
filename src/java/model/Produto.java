@@ -1,6 +1,6 @@
 package model;
 
-public class Funcionario {
+public class Produto {
 
     //Atrib
     private String nome_produto;

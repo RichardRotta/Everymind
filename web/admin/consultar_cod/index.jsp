@@ -10,7 +10,7 @@
     <body class="body-container">
         <div class="container p-5">
             <h1 class="h3 mb-3">Consulta por Código do Produto</h1>
-            <form name="FormCliCons form-container" method="post" action="consultar_ra.jsp">
+            <form name="FormCliCons form-container" method="post" action="consultar_cod.jsp">
                 <div class="mb-3">
                     <input type="text" class="form-control" id="cod_produto" name="cod_produto" placeholder="Código do Produto">
                 </div>

@@ -2675,11 +2675,11 @@ textarea.form-control-lg{
 }
 .btn-primary{
     --bs-btn-color:#fff;
-    --bs-btn-bg:#52b38c;
-    --bs-btn-border-color:#429272;
+    --bs-btn-bg:#e86f35;
+    --bs-btn-border-color:#fff;
     --bs-btn-hover-color:#fff;
-    --bs-btn-hover-bg:#52b38c;
-    --bs-btn-hover-border-color:#52b38c;
+    --bs-btn-hover-bg:#ed8c5c;
+    --bs-btn-hover-border-color:#fff;
     --bs-btn-focus-shadow-rgb:49,132,253;
     --bs-btn-active-color:#fff;
     --bs-btn-active-bg:#52b38c;
@@ -2707,11 +2707,11 @@ textarea.form-control-lg{
 }
 .btn-success{
     --bs-btn-color:#fff;
-    --bs-btn-bg:#198754;
-    --bs-btn-border-color:#198754;
+    --bs-btn-bg:#e86f35;
+    --bs-btn-border-color:#fff;
     --bs-btn-hover-color:#fff;
-    --bs-btn-hover-bg:#157347;
-    --bs-btn-hover-border-color:#146c43;
+    --bs-btn-hover-bg:#ed8c5c;
+    --bs-btn-hover-border-color:#fff;
     --bs-btn-focus-shadow-rgb:60,153,110;
     --bs-btn-active-color:#fff;
     --bs-btn-active-bg:#146c43;

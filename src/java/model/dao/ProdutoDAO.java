@@ -3,13 +3,13 @@ package model.dao;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import model.Funcionario;
+import model.Produto;
 import util.ConectaDB;
 
-public class FuncionarioDAO {
+public class ProdutoDAO {
 
     //Métodos
-    public boolean cadastrarProduto(Funcionario funcionario) {
+    public boolean cadastrarProduto(Produto produto) {
         Connection conexao = null;
 
         try {
@@ -17,8 +17,8 @@ public class FuncionarioDAO {
             Statement stmt = conexao.createStatement();
 
             String sql = "INSERT into produtos(cod_prod, nome_prod, descricao_prod, preco_prod) "
-                    + "values('" + funcionario.getCod_produto()+ "','" + funcionario.getNome_produto()+ "','" + funcionario.getDescricao_produto()
-                    + "','" + funcionario.getPreco_produto() + "')";
+                    + "values('" + produto.getCod_produto()+ "','" + produto.getNome_produto()+ "','" + produto.getDescricao_produto()
+                    + "','" + produto.getPreco_produto() + "')";
 
             stmt.executeUpdate(sql); // Insert, Delete ou Update            
             conexao.close();
@@ -30,21 +30,21 @@ public class FuncionarioDAO {
         }
     }
 
-    public Funcionario consultarRa(Funcionario funcionario) {
+    public Produto consultarCod(Produto produto) {
         Connection conexao = null;
 
         try {
             conexao = ConectaDB.conectar();
             Statement stmt = conexao.createStatement();
-            String sql = "SELECT nome_prod, descricao_prod, preco_prod from produtos WHERE cod_prod = '" + funcionario.getCod_produto() + "'";
+            String sql = "SELECT nome_prod, descricao_prod, preco_prod from produtos WHERE cod_prod = '" + produto.getCod_produto() + "'";
             ResultSet rs = stmt.executeQuery(sql);
 
             int n_reg = 0;
             while (rs.next()) {
                 // lendo as linhas do banco de dados e colocando nas variáveis da classe produto
-                funcionario.setNome_produto(rs.getString("nome_produto"));
-                funcionario.setDescricao_produto(rs.getString("descricao_produto"));
-                funcionario.setPreco_produto(rs.getDouble("preco_produto"));
+                produto.setNome_produto(rs.getString("nome_prod"));
+                produto.setDescricao_produto(rs.getString("descricao_prod"));
+                produto.setPreco_produto(rs.getDouble("preco_prod"));
                 n_reg++;
             }
             conexao.close();
@@ -52,7 +52,7 @@ public class FuncionarioDAO {
             if (n_reg == 0) {
                 return null;
             } else {
-                return funcionario;
+                return produto;
             }
         } catch (ClassNotFoundException | SQLException ex) {
             System.out.println(" Exception: " + ex.toString());
@@ -60,21 +60,21 @@ public class FuncionarioDAO {
         }
     }
 
-    public Funcionario consultarCodAtualizarProd(Funcionario funcionario) {
+    public Produto consultarCodAtualizarProd(Produto produto) {
         Connection conexao = null;
 
         try {
             conexao = ConectaDB.conectar();
             Statement stmt = conexao.createStatement();
-            String sql = "SELECT nome_prod, descricao_prod, preco_prod from produtos WHERE cod_prod = '" + funcionario.getCod_produto() + "'";
+            String sql = "SELECT nome_prod, descricao_prod, preco_prod from produtos WHERE cod_prod = '" + produto.getCod_produto() + "'";
             ResultSet rs = stmt.executeQuery(sql);
 
             int n_reg = 0;
             while (rs.next()) {
                 // 
-                funcionario.setNome_produto(rs.getString("nome_produto"));
-                funcionario.setDescricao_produto(rs.getString("descricao_produto"));
-                funcionario.setPreco_produto(rs.getDouble("preco_produto"));
+                produto.setNome_produto(rs.getString("nome_prod"));
+                produto.setDescricao_produto(rs.getString("descricao_prod"));
+                produto.setPreco_produto(rs.getDouble("preco_prod"));
                 n_reg++;
             }
             conexao.close();
@@ -82,7 +82,7 @@ public class FuncionarioDAO {
             if (n_reg == 0) {
                 return null;
             } else {
-                return funcionario;
+                return produto;
             }
         } catch (ClassNotFoundException | SQLException ex) {
             System.out.println(" Exception: " + ex.toString());
@@ -90,18 +90,17 @@ public class FuncionarioDAO {
         }
     }
 
-    public boolean excluir(Funcionario funcionario) {
+    public boolean excluir(Produto produto) {
         Connection conexao = null;
 
         try {
             conexao = ConectaDB.conectar();
             Statement stmt = conexao.createStatement();
 
-            //DELETE FROM funcionario WHERE matric = '333';;            
-            String sql = "DELETE FROM funcionario WHERE ra = '" + funcionario.getCod_produto() + "'";
+            //DELETE FROM produto WHERE matric = '333';;            
+            String sql = "DELETE FROM produtos WHERE cod_prod = '" + produto.getCod_produto() + "'";
 
-            stmt.executeUpdate(sql); // Insert, Delete ou Update            
-            System.out.println(" Registro Excluído! ");
+            stmt.executeUpdate(sql);           
             conexao.close();
             return true;
 
@@ -111,21 +110,20 @@ public class FuncionarioDAO {
         }
     }
 
-    public boolean atualizarFuncionario(Funcionario funcionario) {
+    public boolean atualizarProduto(Produto produto) {
         Connection conexao = null;
 
         try {
             conexao = ConectaDB.conectar();
             Statement stmt = conexao.createStatement();
 
-            String sql = "UPDATE funcionario SET nome_prod='" + funcionario.getNome_produto()
-                    + "', descricao_prod='" + funcionario.getDescricao_produto() 
-                    + "', preco_prod='" + funcionario.getPreco_produto()
-                    + "'" + " WHERE ra = '" + funcionario.getCod_produto() + "'";
+            String sql = "UPDATE produtos SET nome_prod='" + produto.getNome_produto()
+                    + "', descricao_prod='" + produto.getDescricao_produto() 
+                    + "', preco_prod=" + produto.getPreco_produto()
+                    + "" + " WHERE cod_prod = '" + produto.getCod_produto() + "'";
 
             stmt.executeUpdate(sql); //Update        
 
-            System.out.println(" Registro Alterado com sucesso! ");
             conexao.close();
             return true;
 

@@ -6,18 +6,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet" >
         <link href="../styles/styles.css" rel="stylesheet" >
-        <link href="../styles/pessoal/style.css" rel="stylesheet" >
 
     </head>
     <body class="body-container">
         <div class="container p-5 form-container">
             <h1 class="h3 mb-5">Escolha qual opção deseja usar!</h1>
-            <div class="logout-button">
-                <button onclick="cadastrar()">Cadastrar Funcionário</button><br/>
-                <button onclick="consultar()">Consultar Funcionário</button><br/>
-                <button onclick="atualizar()">Atualizar Funcionario</button><br/>
+            <div class="select-button">
+                <button onclick="cadastrar()">Cadastrar Produto</button><br/>
+                <button onclick="consultar()">Consultar Produto</button><br/>
+                <button onclick="atualizar()">Atualizar Produto</button><br/>
                 <button onclick="excluir()">Excluir</button><br/>
-                <button onclick="logout()">Sair</button><br/>
             </div>
         </div>
         <script>
@@ -27,7 +25,7 @@
             }
             function consultar()
             {
-                window.location.href = "http://localhost:8080/Everymind/admin/consultar_ra";
+                window.location.href = "http://localhost:8080/Everymind/admin/consultar_cod";
             }
             function atualizar()
             {
@@ -36,11 +34,6 @@
             function excluir()
             {
                 window.location.href = "http://localhost:8080/Everymind/admin/excluir";
-            }
-            function logout()
-            {
-                localStorage.setItem("logado", "false");
-                window.location.replace("http://localhost:8080/Everymind");
             }
         </script>
     </body>
