@@ -1,0 +1,14 @@
+.single-item-container {
+    width: 50%;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    text-align: center;
+
+}
+
+.sigle-item-title {
+    font-size: 30px;
+    margin: 32px 0;
+    text-align: center;
+}
